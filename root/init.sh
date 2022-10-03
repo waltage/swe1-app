@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "starting"
 systemctl start nginx
 
 cd /app/hello
