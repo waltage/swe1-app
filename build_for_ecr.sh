@@ -1,5 +1,8 @@
 #!/bin/bash
+set -a
 source .env
+set +a
+
 if [ $# -eq 0 ]
 then
   SHORTLIST_REPO_TAG=latest

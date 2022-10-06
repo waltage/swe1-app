@@ -35,7 +35,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     "http://localhost:9000",
     "http://localhost:8080",
-    "https://localhost"
+    "https://localhost",
+    "http://*.elb.amazonaws.com"
 ]
 
 
