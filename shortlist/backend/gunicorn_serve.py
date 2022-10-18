@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 
-from gunicorn.app.wsgiapp import run
 from gunicorn.app.base import BaseApplication
 from shortlist.backend.hello.wsgi import application
 
