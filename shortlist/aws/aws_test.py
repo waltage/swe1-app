@@ -6,3 +6,5 @@ if __name__ == "__main__":
   conf = client.get_shortlist_config()
 
   print(conf)
+  for k, v in conf.items():
+    print(k, v)
