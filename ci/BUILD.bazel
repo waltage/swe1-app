@@ -1,0 +1,37 @@
+
+py_binary(
+  name = "lint_black",
+  srcs = [
+    "pylint_black.py"
+  ],
+  deps = [
+    "//third_party:black",
+    "//third_party:toml",
+    "//third_party:tomli",
+    "//third_party:click",
+    "//third_party:mypy",
+    "//third_party:platformdirs",
+    "//third_party:pathspec",
+  ],
+  main = "pylint_black.py",
+  visibility = [
+    "//visibility:public",
+  ]
+)
+
+py_binary(
+  name = "lint_flake8",
+  srcs = [
+    "pylint_flake8.py"
+  ],
+  deps = [
+    "//third_party:flake8",
+    "//third_party:mccabe",
+    "//third_party:pyflakes",
+    "//third_party:pycodestyle",
+  ],
+  main = "pylint_flake8.py",
+  visibility = [
+    "//visibility:public",
+  ]
+)
