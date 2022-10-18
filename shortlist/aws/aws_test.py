@@ -1,6 +1,8 @@
-from shortlist.aws.secrets import connect
+from shortlist.aws.secrets import ShortlistSecretClient
 
 
 if __name__ == "__main__":
-  c = connect()
-  print(c)
+  client = ShortlistSecretClient()
+  conf = client.get_shortlist_config()
+
+  print(conf)
