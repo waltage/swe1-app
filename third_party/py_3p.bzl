@@ -1,14 +1,14 @@
 load("@third_party//:requirements.bzl", "requirement")
 
 
-def gen_3p(real, real_as=None):
+def gen_3p(name, real_as=None):
   if not real_as:
-    real_as = real
+    real_as = name
 
   native.py_library(
     name = real_as,
     deps = [
-      requirement(real)
+      requirement(name)
     ],
     visibility = [
       "//visibility:public"
