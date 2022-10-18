@@ -1,10 +1,10 @@
-name: TEST_BAZEL
+name: LINTERS
 
 on:
   push
 
 jobs:  
-  print_version:
+  run_linters:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,6 +14,13 @@ jobs:
         with:
           path: "~/.cache/bazel"
           key: bazel
-      - name: Test Version
+      
+      - uses: actions/checkout@v3
+      
+      - name: Run Black Linter
         run: |
-          bazel version
+          bazel run //cli:lint_black -- --check ${GITHUB_WORKSPACE}/shortlist
+
+      - name: Run Flake8
+        run: |
+          bazel run //ci:lint_flake8 -- ${GITHUB_WORKSPACE}/shortlist
