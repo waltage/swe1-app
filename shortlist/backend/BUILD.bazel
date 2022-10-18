@@ -9,6 +9,8 @@ py_binary(
     "//shortlist/backend/hello:hello",
     "//shortlist/backend/polls:polls",
 
+    "//shortlist/aws:secrets",
+
     "//third_party:asgiref",
     "//third_party:aws_xray_sdk",
     "//third_party:boto3",

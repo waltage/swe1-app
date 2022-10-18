@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+from shortlist.aws.secrets import ShortlistSecretClient
+
+_client = ShortlistSecretClient()
+SECRET_CONFIG = _client.get_shortlist_config()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SHORTLIST_DJANGO_SECRET")
+SECRET_KEY = SECRET_CONFIG["DJANGO_SECRET"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -91,11 +95,11 @@ WSGI_APPLICATION = 'hello.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("SHORTLIST_RDS_DB"),
-        'USER': os.environ.get("SHORTLIST_RDS_USER"),
-        'PASSWORD': os.environ.get("SHORTLIST_RDS_PASSWORD"),
-        'HOST': os.environ.get("SHORTLIST_RDS_ENDPOINT"),
-        'PORT': os.environ.get("SHORTLIST_RDS_PORT")
+        'NAME': SECRET_CONFIG["RDS_DB"],
+        'USER': SECRET_CONFIG["RDS_USER"],
+        'PASSWORD': SECRET_CONFIG["RDS_PASS"],
+        'HOST': SECRET_CONFIG["RDS_ENDPOINT"],
+        'PORT': 5432
     }
 }
 
