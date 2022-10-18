@@ -25,6 +25,7 @@ gen_3p(name="six")
 gen_3p(name="sqlparse")
 gen_3p(name="toml")
 gen_3p(name="tomli")
+gen_3p(name="typing-extensions", real_as="typing_extensions")
 gen_3p(name="urllib3")
 gen_3p(name="wrapt")
 
