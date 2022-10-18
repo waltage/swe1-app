@@ -13,16 +13,16 @@ python_register_toolchains(
     python_version = "3.10",
 )
 
-# load("@python3_10//:defs.bzl", "interpreter")
+
+# Load 3P python requirements
 
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
-    name = "django_deps",
-    # interpreter = ""
-    requirements_lock = "//backend:requirements.txt"
+    name = "third_party",
+    requirements_lock = "//third_party:requirements.txt"
 )
 
-load("@django_deps//:requirements.bzl", "install_deps")
+load("@third_party//:requirements.bzl", "install_deps")
 
 install_deps()

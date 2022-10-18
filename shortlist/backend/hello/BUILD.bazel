@@ -7,6 +7,6 @@ py_library(
     "wsgi.py"
   ],
   visibility = [
-    "//backend:__subpackages__",
+    "//shortlist/backend:__subpackages__",
     ]
 )

@@ -1,0 +1,33 @@
+# load("@django_deps//:requirements.bzl", "requirement")
+
+py_binary(
+  name = "manage",
+  srcs = [
+    "manage.py"
+    ],
+  deps = [
+    "//shortlist/backend/hello:hello",
+    "//shortlist/backend/polls:polls",
+
+    "//third_party:asgiref",
+    "//third_party:aws_xray_sdk",
+    "//third_party:boto3",
+    "//third_party:botocore",
+    "//third_party:django",
+    "//third_party:jmespath",
+    "//third_party:psycopg2",
+    "//third_party:dateutil",
+    "//third_party:pytz",
+    "//third_party:s3transfer",
+    "//third_party:six",
+    "//third_party:sqlparse",
+    "//third_party:urllib3",
+    "//third_party:wrapt"
+  ],
+  python_version = "PY3",
+  data = [
+    "static",
+    "templates"
+  ],
+  main = "manage.py",
+)

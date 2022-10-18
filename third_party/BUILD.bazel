@@ -1,0 +1,18 @@
+load("//third_party:py_3p.bzl", "gen_3p")
+
+gen_3p("asgiref")
+gen_3p("aws-xray-sdk", "aws_xray_sdk")
+gen_3p("boto3")
+gen_3p("botocore")
+gen_3p("django")
+gen_3p("jmespath")
+gen_3p("psycopg2")
+gen_3p("python-dateutil", "dateutil")
+gen_3p("pytz")
+gen_3p("s3transfer")
+gen_3p("six")
+gen_3p("sqlparse")
+gen_3p("urllib3")
+gen_3p("wrapt")
+
+
