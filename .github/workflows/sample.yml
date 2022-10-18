@@ -3,14 +3,17 @@ name: TEST_BAZEL
 on:
   push
 
-jobs:
-  install_bazel:
-    uses: ./.github/workflows/load_bazel.yml
-  
+jobs:  
   print_version:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: bazelbuild/setup-bazelisk@v2
+      - name: Mount cache
+        uses: actions/cache@v3
+        with:
+          path: "~/.cache/bazel"
+          key: bazel
       - name: Test Version
         run: |
           bazel version
