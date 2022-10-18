@@ -14,8 +14,3 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello.settings')
 
 application = get_wsgi_application()
-
-print("OS:")
-for _ in os.environ:
-  print("{}={}".format(_, os.environ.get(_)))
-print("END====")
