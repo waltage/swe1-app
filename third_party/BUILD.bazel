@@ -2,6 +2,7 @@ load("//third_party:py_3p.bzl", "gen_3p")
 
 gen_3p(name="asgiref")
 gen_3p(name="aws-xray-sdk", real_as="aws_xray_sdk")
+gen_3p(name="black")
 gen_3p(name="boto3")
 gen_3p(name="botocore")
 gen_3p(name="django")

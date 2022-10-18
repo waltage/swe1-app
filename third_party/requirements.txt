@@ -2,6 +2,7 @@ asgiref==3.5.2
 aws-xray-sdk==2.10.0
 boto3==1.24.84
 botocore==1.27.84
+black==22.10.0
 django==4.1.1
 gunicorn==20.1.0
 jmespath==1.0.1
