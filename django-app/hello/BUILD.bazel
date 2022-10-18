@@ -1,0 +1,12 @@
+py_library(
+  name = "hello",
+  srcs = [
+    "asgi.py",
+    "settings.py",
+    "urls.py",
+    "wsgi.py"
+  ],
+  visibility = [
+    "//django-app:__subpackages__",
+    ]
+)

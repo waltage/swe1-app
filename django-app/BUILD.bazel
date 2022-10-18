@@ -1,0 +1,32 @@
+load("@django_deps//:requirements.bzl", "requirement")
+
+py_binary(
+  name = "manage",
+  srcs = [
+    "manage.py"
+    ],
+  deps = [
+    "//django-app/hello:hello",
+    "//django-app/polls:polls",
+    requirement("django"),
+    requirement("pytz"),
+    requirement("asgiref"),
+    requirement("sqlparse"),
+    requirement("aws-xray-sdk"),
+    requirement("wrapt"),
+    requirement("boto3"),
+    requirement("botocore"),
+    requirement("jmespath"),
+    requirement("s3transfer"),
+    requirement("python-dateutil"),
+    requirement("six"),
+    requirement("urllib3"),
+    requirement("psycopg2"),
+  ],
+  python_version = "PY3",
+  data = [
+    "static",
+    "templates"
+  ],
+  main = "manage.py",
+)
