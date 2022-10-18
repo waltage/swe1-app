@@ -1,10 +1,8 @@
 # load("@django_deps//:requirements.bzl", "requirement")
 
-py_binary(
-  name = "manage",
-  srcs = [
-    "manage.py"
-    ],
+py_library(
+  name = "app_deps",
+  srcs = [],
   deps = [
     "//shortlist/backend/hello:hello",
     "//shortlist/backend/polls:polls",
@@ -24,7 +22,17 @@ py_binary(
     "//third_party:six",
     "//third_party:sqlparse",
     "//third_party:urllib3",
-    "//third_party:wrapt"
+    "//third_party:wrapt",
+  ]
+)
+
+py_binary(
+  name = "manage",
+  srcs = [
+    "manage.py"
+    ],
+  deps = [
+    ":app_deps"
   ],
   python_version = "PY3",
   data = [
@@ -32,4 +40,16 @@ py_binary(
     "templates"
   ],
   main = "manage.py",
+)
+
+py_binary(
+  name = "serve",
+  srcs = [
+    "gunicorn_serve.py"
+  ],
+  deps = [
+    ":app_deps",
+    "//third_party:gunicorn",
+  ],
+  main = "gunicorn_serve.py"
 )
