@@ -1,0 +1,11 @@
+py_binary(
+  name = "imported",
+  srcs = [
+    "test_import.py",
+  ],
+  deps = [
+    "//shortlist-aws",
+  ],
+  python_version = "PY3",
+  main = "test_import.py"
+)

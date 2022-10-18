@@ -1,4 +1,4 @@
 .env
 .rootkey.csv
-
+bazel-*
 __pycache__/

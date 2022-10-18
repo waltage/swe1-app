@@ -20,7 +20,7 @@ load("@rules_python//python:pip.bzl", "pip_parse")
 pip_parse(
     name = "django_deps",
     # interpreter = ""
-    requirements_lock = "//django-app:requirements.txt"
+    requirements_lock = "//backend:requirements.txt"
 )
 
 load("@django_deps//:requirements.bzl", "install_deps")

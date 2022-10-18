@@ -7,6 +7,6 @@ py_library(
     "wsgi.py"
   ],
   visibility = [
-    "//django-app:__subpackages__",
+    "//backend:__subpackages__",
     ]
 )

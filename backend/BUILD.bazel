@@ -6,8 +6,8 @@ py_binary(
     "manage.py"
     ],
   deps = [
-    "//django-app/hello:hello",
-    "//django-app/polls:polls",
+    "//backend/hello:hello",
+    "//backend/polls:polls",
     requirement("django"),
     requirement("pytz"),
     requirement("asgiref"),

@@ -9,6 +9,6 @@ py_library(
     "views.py"
   ],
   visibility = [
-    "//django-app:__subpackages__",
+    "//backend:__subpackages__",
     ]
 )

@@ -1,0 +1,10 @@
+
+py_library(
+  name = "shortlist-aws",
+  srcs = [
+    "sample1.py"
+  ],
+  visibility = [
+    "//visibility:public",
+  ]
+)
