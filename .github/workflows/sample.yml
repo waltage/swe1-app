@@ -19,7 +19,7 @@ jobs:
       
       - name: Run Black Linter
         run: |
-          bazel run //cli:lint_black -- --check ${GITHUB_WORKSPACE}/shortlist
+          bazel run //ci:lint_black -- --check ${GITHUB_WORKSPACE}/shortlist
 
       - name: Run Flake8
         run: |
