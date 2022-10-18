@@ -4,7 +4,7 @@ on:
 
 jobs:
   install_bazel:
-    runs_on: ubuntu-xenial
+    runs_on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
