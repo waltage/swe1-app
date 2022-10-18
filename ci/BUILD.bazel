@@ -10,7 +10,7 @@ py_binary(
     "//third_party:tomli",
     "//third_party:click",
     "//third_party:mypy_extensions",
-    "//third_party:typing_extensions"
+    "//third_party:typing_extensions",
     "//third_party:platformdirs",
     "//third_party:pathspec",
   ],
