@@ -1,0 +1,14 @@
+
+py_binary(
+  name = "django_cov",
+  srcs = [
+    "pytest_django.py"
+  ],
+  deps = [
+    "//third_party:coverage",
+  ],
+  main = "pytest_django.py",
+  visibility = [
+    "//visibility:public"
+  ]
+)

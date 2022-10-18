@@ -3,6 +3,7 @@ aws-xray-sdk==2.10.0
 boto3==1.24.84
 botocore==1.27.84
 black==22.10.0
+coverage==6.5.0
 click==8.1.3
 django==4.1.1
 flake8==5.0.4

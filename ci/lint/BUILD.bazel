@@ -1,6 +1,6 @@
 
 py_binary(
-  name = "lint_black",
+  name = "py_black",
   srcs = [
     "pylint_black.py"
   ],
@@ -21,7 +21,7 @@ py_binary(
 )
 
 py_binary(
-  name = "lint_flake8",
+  name = "py_flake8",
   srcs = [
     "pylint_flake8.py"
   ],
