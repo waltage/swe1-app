@@ -1,0 +1,20 @@
+load("@io_bazel_rules_docker//python:image.bzl", "py_layer", "py3_image")
+
+py_layer(
+  name = "image-serve",
+  deps = [
+    "//shortlist/backend:serve"
+  ]
+)
+
+py3_image(
+  name="django_backend",
+  deps = [
+    "//shortlist/backend/hello:hello",
+    "//shortlist/backend/polls:polls",
+    "//shortlist/backend:app_deps"
+  ],
+  layers = [
+    ":image-serve",
+  ]
+)

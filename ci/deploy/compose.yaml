@@ -1,0 +1,33 @@
+# docker context create ecs --local-simulation ecsLocal
+# docker context use ecsLocal
+# docker compose --file compose.yaml --project-name="nyu-swe2" up
+
+# docker context create ecs ecscontext --from-env
+# docker compose --file compose.yaml --context ecscontext --project-name="nyu-swe2" up
+
+
+
+services:
+  xray:
+    image: amazon/aws-xray-daemon
+    ports:
+      - 2000:2000/udp
+    environment:
+      AWS_XRAY_DAEMON_ADDRESS: localhost:2000
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/shortlist-fe
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: ecs
+
+  frontend-nginx:
+    image: nginx
+    ports:
+      - "80:8000"
+  
+  backend-django:
+    build:
+      context: backend
+      target: builder
+      

@@ -14,7 +14,7 @@ python_register_toolchains(
     python_version = "3.8",
 )
 
-load("@python3_8//:defs.bzl", "interpreter")
+# load("@python3_8//:defs.bzl", "interpreter")
 # Load 3P python requirements
 
 load("@rules_python//python:pip.bzl", "pip_parse")
