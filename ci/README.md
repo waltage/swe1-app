@@ -5,4 +5,4 @@
 - `bazel run //ci/lint:py_flake8 -- $(pwd)/shortlist`
 
 ## Tests/Coverage for Django
-- `bazel run //ci/testing:django_cov -- --output_dir=$(pwd)`
+- `bazel run //ci/testing:django -- --output_dir=$(pwd)`
