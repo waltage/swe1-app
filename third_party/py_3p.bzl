@@ -9,7 +9,7 @@ def gen_3p(name, real_as=None):
   py_library(
     name = real_as,
     deps = [
-      "@third_party_{}//:pkg".format(name)
+      "@third_party_{}//:pkg".format(real_as)
       # requirement(name)
     ],
     visibility = [
