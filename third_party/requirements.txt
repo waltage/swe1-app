@@ -4,7 +4,7 @@ boto3==1.24.84
 botocore==1.27.84
 black==22.10.0
 coverage==6.5.0
-click==8.1.3
+click==8.1.
 django==4.1.1
 flake8==5.0.4
 gunicorn==20.1.0
@@ -34,3 +34,5 @@ idna==3.4
 certifi==2022.9.24
 charset-normalizer==2.1.1
 coveralls==3.3.1
+
+backports.zoneinfo==0.2.1
