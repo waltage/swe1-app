@@ -27,7 +27,7 @@ jobs:
 
       - name: Django Tests
         run:
-          bazel run //ci/testing:django -- --output_dir=${GITHUB_WORKSPACE}
+          bazel run //ci/testing:django -- --output_dir=${GITHUB_WORKSPACE}/ci/testing/
       
       - name: Update Coverage
         run:
