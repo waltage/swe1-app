@@ -14,21 +14,19 @@ RUN apt-get install -y build-essential zlib1g-dev \
 RUN apt-get install -y postgresql libpq-dev unzip
 
 
-RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
-RUN tar -xf Python-3.8.12.tar.xz
-RUN mv Python-3.8.12 /opt/Python-3.8.12
+# RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
+# RUN tar -xf Python-3.8.12.tar.xz
+# RUN mv Python-3.8.12 /opt/Python-3.8.12
+# WORKDIR /opt/Python-3.8.12
+# RUN ./configure --enable-optimizations --enable-shared
+# RUN make -j 4
+# RUN make altinstall
+# RUN ldconfig /opt/Python-3.8.12
+# WORKDIR /
+# RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+# RUN python3.8 get-pip.py
 
 
-WORKDIR /opt/Python-3.8.12
-RUN ./configure --enable-optimizations --enable-shared
-RUN make -j 4
-RUN make altinstall
-RUN ldconfig /opt/Python-3.8.12
-
-WORKDIR /
-
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN python3.8 get-pip.py
 
 # RUN wget -O /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-amd64
 
