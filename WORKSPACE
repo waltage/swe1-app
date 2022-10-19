@@ -24,7 +24,3 @@ pip_parse(
     python_interpreter_target = interpreter,
     requirements_lock = "//third_party:requirements.txt"
 )
-
-load("@third_party//:requirements.bzl", "install_deps")
-
-install_deps()

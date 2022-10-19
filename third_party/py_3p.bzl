@@ -1,4 +1,7 @@
-load("@third_party//:requirements.bzl", "requirement")
+
+load("@third_party//:requirements.bzl", "install_deps", "requirement")
+install_deps()
+
 
 
 def gen_3p(name, real_as=None):

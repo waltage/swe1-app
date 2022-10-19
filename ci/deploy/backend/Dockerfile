@@ -30,7 +30,6 @@ WORKDIR /
 
 RUN wget -O /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-arm64
 RUN chmod +x "/usr/local/bin/bazel"
-RUN bazel version
 
 USER robot
 WORKDIR /home/robot
