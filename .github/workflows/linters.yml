@@ -23,4 +23,4 @@ jobs:
 
       - name: Run Flake8
         run: |
-          bazel run //ci/lint:py_flake8 -- ${GITHUB_WORKSPACE}/shortlist
+          bazel run //ci/lint:py_flake8 -- --ignore=E501 ${GITHUB_WORKSPACE}/shortlist
