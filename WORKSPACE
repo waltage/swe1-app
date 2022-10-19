@@ -21,7 +21,7 @@ load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
     name = "third_party_dep",
-    python_interpreter_name = interpreter,
+    python_interpreter_target = interpreter,
     # python_interpreter = "python3.8",
     requirements_lock = "//third_party:requirements.txt"
 )
