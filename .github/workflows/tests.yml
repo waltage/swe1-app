@@ -31,8 +31,10 @@ jobs:
         run: |
           bazel run //ci/testing:django -- --output_dir=${GITHUB_WORKSPACE}/ci/testing/
       
-      - name: Update Coverage
+      - name: Install Coveralls
         run: |
           pip install coveralls
+
+      - name: Update Coverage
         run: |
           cd ${GITHUB_WORKSPACE}/ci/testing/coverage; COVERALLS_REPO_TOKEN=${{secrets.COVERALL_TOKEN}} coveralls
