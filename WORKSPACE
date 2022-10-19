@@ -10,20 +10,18 @@ http_archive(
 load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
 python_register_toolchains(
-     name = "python3_9",
-     python_version = "3.8.10",
+     name = "python3_8",
+     python_version = "3.8.12",
 )
 
 load("@rules_python//python:pip.bzl", "pip_parse")
 
-load("@python3_9//:defs.bzl", "interpreter")
+load("@python3_8//:defs.bzl", "interpreter")
 # Load 3P python requirements
-
 
 pip_parse(
     name = "third_party_dep",
     python_interpreter_target = interpreter,
-    # python_interpreter = "python3.8",
     requirements_lock = "//third_party:requirements.txt"
 )
 
