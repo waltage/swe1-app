@@ -13,7 +13,9 @@ class Question(models.Model):
     def __str__(self):
         return "Q{:02d}-{}".format(self.id, self.question_text)
 
-    @admin.display(boolean=True, ordering="pub_date", description="Published Recently?")  # noqa: E501
+    @admin.display(
+        boolean=True, ordering="pub_date", description="Published Recently?"
+    )  # noqa: E501
     def was_published_recently(self):
         upper = timezone.now()
         lower = upper - dt.timedelta(days=1)
