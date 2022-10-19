@@ -18,7 +18,8 @@ SECRET_CONFIG = _client.get_shortlist_config()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +31,11 @@ SECRET_KEY = SECRET_CONFIG["DJANGO_SECRET"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "localhost", 
+    "127.0.0.1",
+    "testserver"
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
@@ -44,18 +49,18 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
-    "polls.apps.PollsConfig",
+    "shortlist.backend.polls.apps.PollsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "aws_xray_sdk.ext.django",
+    # "aws_xray_sdk.ext.django",
 ]
 
 MIDDLEWARE = [
-    "aws_xray_sdk.ext.django.middleware.XRayMiddleware",
+    # "aws_xray_sdk.ext.django.middleware.XRayMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -65,7 +70,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "hello.urls"
+ROOT_URLCONF = "shortlist.backend.hello.urls"
 
 TEMPLATES = [
     {
@@ -83,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "hello.wsgi.application"
+WSGI_APPLICATION = "shortlist.backend.hello.wsgi.application"
 
 
 # Database
@@ -147,7 +152,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = "static"
+STATIC_ROOT = BASE_DIR / "static"
+
+print(STATIC_ROOT)
+
 STATIC_URL = "static/"
 
 # Default primary key field type

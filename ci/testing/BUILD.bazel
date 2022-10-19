@@ -5,6 +5,9 @@ py_binary(
     "pytest_django.py"
   ],
   deps = [
+    "//shortlist/backend:app_deps",
+    "//shortlist/backend/hello:hello",
+    "//shortlist/backend/polls:polls",
     "//third_party:coverage",
   ],
   main = "pytest_django.py",

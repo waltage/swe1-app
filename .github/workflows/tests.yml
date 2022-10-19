@@ -1,0 +1,23 @@
+name: TESTS
+
+on:
+  push
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    environment: test
+
+    steps:
+      - uses: bazelbuild/setup-bazelisk@v2
+      - name: Mount cache
+        uses: actions/cache@v3
+        with:
+          path: "~/.cache/bazel"
+          key: bazel
+
+      - uses: actions/checkout@v3
+
+      - name: Django Tests
+        run:
+          bazel run //ci/testing:django_cov -- --coverall=${{secrets.COVERALL_TOKEN}}

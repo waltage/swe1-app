@@ -1,3 +1,11 @@
+filegroup(
+  name = "polls_static",
+  srcs = glob([
+    "static/**/*",
+    "templates/**/*"
+  ])
+)
+
 py_library(
   name = "polls",
   srcs = [
@@ -8,7 +16,11 @@ py_library(
     "urls.py",
     "views.py"
   ],
+  data = [
+    ":polls_static",
+  ],
   visibility = [
     "//shortlist/backend:__subpackages__",
+    "//ci/testing:__subpackages__",
     ]
 )

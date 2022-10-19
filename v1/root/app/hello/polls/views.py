@@ -9,8 +9,8 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views import generic
 
-from .models import Choice
-from .models import Question
+from shortlist.backend.polls.models import Choice
+from shortlist.backend.polls.models import Question
 
 
 class IndexView(generic.ListView):

@@ -25,8 +25,17 @@ py_library(
     "//third_party:wrapt",
   ],
   visibility = [
-    "//visibility:private",
+    "//shortlist/backend:__subpackages__",
+    "//ci/testing:__subpackages__",
   ]
+)
+
+filegroup(
+  name = "django_static",
+  srcs = glob([
+    "static/**/*",
+    "templates/**/*"
+  ])
 )
 
 py_binary(
@@ -35,13 +44,12 @@ py_binary(
     "manage.py"
     ],
   deps = [
-    ":app_deps"
+    ":app_deps",
+  ],
+  data = [
+    ":django_static",
   ],
   python_version = "PY3",
-  data = [
-    "static",
-    "templates"
-  ],
   main = "manage.py",
 )
 
@@ -53,6 +61,9 @@ py_binary(
   deps = [
     ":app_deps",
     "//third_party:gunicorn",
+  ],
+  data = [
+    ":django_static",
   ],
   main = "gunicorn_serve.py"
 )

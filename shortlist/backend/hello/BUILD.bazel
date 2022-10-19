@@ -8,5 +8,6 @@ py_library(
   ],
   visibility = [
     "//shortlist/backend:__subpackages__",
+    "//ci/testing:__subpackages__",
     ]
 )
