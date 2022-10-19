@@ -1,6 +1,6 @@
 
 load("@rules_python//python:defs.bzl", "py_library")
-load("@third_party//:requirements.bzl", "requirement")
+# load("@third_party//:requirements.bzl", "requirement")
 
 def gen_3p(name, real_as=None):
   if not real_as:
@@ -9,7 +9,8 @@ def gen_3p(name, real_as=None):
   py_library(
     name = real_as,
     deps = [
-      requirement(name)
+      "@third_party_{}//:pkg".format(name)
+      # requirement(name)
     ],
     visibility = [
       "//visibility:public"
