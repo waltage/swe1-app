@@ -10,8 +10,8 @@ http_archive(
 load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
 python_register_toolchains(
-     name = "python3_10",
-     python_version = "3.10",
+     name = "python3_9",
+     python_version = "3.9",
 )
 
 load("@python3_10//:defs.bzl", "interpreter")
