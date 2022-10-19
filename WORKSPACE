@@ -11,7 +11,7 @@ load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
 python_register_toolchains(
      name = "python3_9",
-     python_version = "3.9",
+     python_version = "3.8.10",
 )
 
 load("@python3_9//:defs.bzl", "interpreter")
