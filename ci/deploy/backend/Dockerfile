@@ -11,7 +11,8 @@ RUN apt-get install -y git
 RUN apt-get install -y build-essential zlib1g-dev \
   libncurses5-dev libgdbm-dev libnss3-dev libssl-dev \
   libsqlite3-dev libreadline-dev libffi-dev curl
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y postgresql libpq-dev unzip
+
 
 RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
 RUN tar -xf Python-3.8.12.tar.xz
@@ -20,7 +21,7 @@ RUN mv Python-3.8.12 /opt/Python-3.8.12
 
 WORKDIR /opt/Python-3.8.12
 RUN ./configure --enable-optimizations --enable-shared
-RUN make
+RUN make -j 4
 RUN make altinstall
 RUN ldconfig /opt/Python-3.8.12
 
@@ -31,6 +32,9 @@ WORKDIR /
 RUN wget -O /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-arm64
 RUN chmod +x "/usr/local/bin/bazel"
 
+
+RUN rm -rf /var/lib/apt/lists/*
+
 USER robot
 WORKDIR /home/robot
 
@@ -39,6 +43,8 @@ WORKDIR /home/robot
 RUN git clone ${REPO} app
 WORKDIR /home/robot/app
 RUN git checkout deployment
+
+
 
 ENTRYPOINT ["/bin/bash"]
 
