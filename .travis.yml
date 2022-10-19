@@ -21,6 +21,6 @@ before_install:
 
 script:
   - bazel run //ci/lint:py_black -- --check $(pwd)/shortlist/
-  - bazel run //ci/lint:py_flake8 -- $(pwd)/shortlist/
+  - bazel run //ci/lint:py_flake8 -- --ignore=E501 $(pwd)/shortlist/
   - bazel run //ci/testing:django -- --output_dir=$(pwd)/ci/testing/
   - cd ci/testing/coverage; coveralls
