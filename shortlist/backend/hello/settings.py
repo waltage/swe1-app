@@ -31,11 +31,7 @@ SECRET_KEY = SECRET_CONFIG["DJANGO_SECRET"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "localhost", 
-    "127.0.0.1",
-    "testserver"
-]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver"]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
@@ -153,9 +149,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / "static"
-
-print(STATIC_ROOT)
-
 STATIC_URL = "static/"
 
 # Default primary key field type
