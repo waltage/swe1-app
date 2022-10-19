@@ -1,6 +1,8 @@
 
+load("@rules_python//python:defs.bzl", "py_binary")
+
 py_binary(
-  name = "django_cov",
+  name = "django",
   srcs = [
     "pytest_django.py"
   ],
@@ -9,6 +11,12 @@ py_binary(
     "//shortlist/backend/hello:hello",
     "//shortlist/backend/polls:polls",
     "//third_party:coverage",
+    "//third_party:requests",
+    "//third_party:docopt",
+    "//third_party:idna",
+    "//third_party:certifi",
+    "//third_party:charset_normalizer",
+    "//third_party:coveralls",
   ],
   main = "pytest_django.py",
   visibility = [

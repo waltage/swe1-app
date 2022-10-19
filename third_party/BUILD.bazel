@@ -29,5 +29,9 @@ gen_3p(name="tomli")
 gen_3p(name="typing-extensions", real_as="typing_extensions")
 gen_3p(name="urllib3")
 gen_3p(name="wrapt")
-
-
+gen_3p(name="requests")
+gen_3p(name="docopt")
+gen_3p(name="idna")
+gen_3p(name="certifi")
+gen_3p(name="charset-normalizer", real_as="charset_normalizer")
+gen_3p(name="coveralls")
