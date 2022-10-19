@@ -1,6 +1,6 @@
 
 # load("@rules_python//python:defs.bzl", "py_library")
-load("@third_party//:requirements.bzl", "requirement")
+load("@third_party_dep//:requirements.bzl", "requirement")
 
 def gen_3p(name, real_as=None):
   if not real_as:

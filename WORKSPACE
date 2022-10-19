@@ -20,11 +20,11 @@ load("@python3_10//:defs.bzl", "interpreter")
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
-    name = "third_party",
+    name = "third_party_dep",
     python_interpreter_name = interpreter,
     # python_interpreter = "python3.8",
     requirements_lock = "//third_party:requirements.txt"
 )
 
-load("@third_party//:requirements.bzl", "install_deps")
+load("@third_party_dep//:requirements.bzl", "install_deps")
 install_deps()
