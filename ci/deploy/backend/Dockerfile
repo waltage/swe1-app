@@ -13,7 +13,6 @@ RUN apt-get install -y build-essential zlib1g-dev \
   libsqlite3-dev libreadline-dev libffi-dev curl
 RUN apt-get install -y postgresql libpq-dev unzip
 
-
 # RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
 # RUN tar -xf Python-3.8.12.tar.xz
 # RUN mv Python-3.8.12 /opt/Python-3.8.12
@@ -26,20 +25,16 @@ RUN apt-get install -y postgresql libpq-dev unzip
 # RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 # RUN python3.8 get-pip.py
 
-
-
+# ============== dev or prod
+RUN wget -O /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-arm64
 # RUN wget -O /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-amd64
 
-RUN wget -O /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-arm64
 RUN chmod +x "/usr/local/bin/bazel"
-
 
 RUN rm -rf /var/lib/apt/lists/*
 
 USER robot
 WORKDIR /home/robot
-
-
 
 RUN git clone ${REPO} app
 WORKDIR /home/robot/app
