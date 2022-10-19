@@ -1,14 +1,12 @@
 
+load("@rules_python//python:defs.bzl", "py_library")
 load("@third_party//:requirements.bzl", "requirement")
-# install_deps()
-
-
 
 def gen_3p(name, real_as=None):
   if not real_as:
     real_as = name
 
-  native.py_library(
+  py_library(
     name = real_as,
     deps = [
       requirement(name)
