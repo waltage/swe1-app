@@ -10,7 +10,7 @@ SHORTLIST_SECRET_ID = "prod/walt-nyu/projects"
 
 
 class ShortlistSecretClient:
-    def __init__(self, profile="default"):
+    def __init__(self, profile=None):
         self.profile = profile
         session = boto3.Session(profile_name=self.profile)
         self.client = session.client("secretsmanager")
