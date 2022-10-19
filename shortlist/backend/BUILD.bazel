@@ -1,0 +1,70 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_library(
+  name = "app_deps",
+  srcs = [],
+  deps = [
+    "//shortlist/backend/hello:hello",
+    "//shortlist/backend/polls:polls",
+
+    "//shortlist/aws:secrets",
+
+    "//third_party:asgiref",
+    "//third_party:aws_xray_sdk",
+    "//third_party:boto3",
+    "//third_party:botocore",
+    "//third_party:django",
+    "//third_party:jmespath",
+    "//third_party:psycopg2",
+    "//third_party:dateutil",
+    "//third_party:pytz",
+    "//third_party:s3transfer",
+    "//third_party:six",
+    "//third_party:sqlparse",
+    "//third_party:urllib3",
+    "//third_party:wrapt",
+    "//third_party:backports.zoneinfo",
+  ],
+  visibility = [
+    "//shortlist/backend:__subpackages__",
+    "//ci/testing:__subpackages__",
+  ]
+)
+
+filegroup(
+  name = "django_static",
+  srcs = glob([
+    "static/**/*",
+    "templates/**/*"
+  ])
+)
+
+py_binary(
+  name = "manage",
+  srcs = [
+    "manage.py"
+    ],
+  deps = [
+    ":app_deps",
+  ],
+  data = [
+    ":django_static",
+  ],
+  python_version = "PY3",
+  main = "manage.py",
+)
+
+py_binary(
+  name = "serve",
+  srcs = [
+    "gunicorn_serve.py"
+  ],
+  deps = [
+    ":app_deps",
+    "//third_party:gunicorn",
+  ],
+  data = [
+    ":django_static",
+  ],
+  main = "gunicorn_serve.py"
+)

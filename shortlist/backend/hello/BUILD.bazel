@@ -1,0 +1,15 @@
+load("@rules_python//python:defs.bzl", "py_library")
+
+py_library(
+  name = "hello",
+  srcs = [
+    "asgi.py",
+    "settings.py",
+    "urls.py",
+    "wsgi.py"
+  ],
+  visibility = [
+    "//shortlist/backend:__subpackages__",
+    "//ci/testing:__subpackages__",
+    ]
+)

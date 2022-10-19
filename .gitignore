@@ -1,4 +1,5 @@
 .env
 .rootkey.csv
-
+bazel-*
 __pycache__/
+coverage

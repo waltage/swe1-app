@@ -1,0 +1,26 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_library(
+  name = "secrets",
+  srcs = [
+    "secrets.py"
+  ],
+  deps = [
+    "//third_party:boto3",
+    "//third_party:botocore",
+  ],
+  visibility = [
+    "//visibility:public",
+  ]
+)
+
+py_binary(
+  name = "aws_test",
+  srcs = [
+    "aws_test.py",
+  ],
+  deps = [
+    ":secrets",
+  ]
+
+)
