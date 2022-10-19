@@ -28,9 +28,11 @@ jobs:
       # These still require fucking open RDS connections
 
       - name: Django Tests
-        run:
+        run: |
           bazel run //ci/testing:django -- --output_dir=${GITHUB_WORKSPACE}/ci/testing/
       
       - name: Update Coverage
-        run:
+        run: |
+          pip install coveralls
+        run: |
           cd ${GITHUB_WORKSPACE}/ci/testing/coverage; COVERALLS_REPO_TOKEN=${{secrets.COVERALL_TOKEN}} coveralls
