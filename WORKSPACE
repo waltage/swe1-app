@@ -11,17 +11,17 @@ load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
 python_register_toolchains(
     name = "python3_8",
-    python_version = "3.8",
+    python_version = "3.8.12",
 )
 
-# load("@python3_8//:defs.bzl", "interpreter")
+load("@python3_8//:defs.bzl", "interpreter")
 # Load 3P python requirements
 
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
     name = "third_party",
-    # python_interpreter_target = interpreter,
+    python_interpreter_target = interpreter,
     requirements_lock = "//third_party:requirements.txt"
 )
 
