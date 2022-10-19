@@ -20,4 +20,8 @@ jobs:
 
       - name: Django Tests
         run:
-          bazel run //ci/testing:django_cov -- --coverall=${{secrets.COVERALL_TOKEN}}
+          bazel run //ci/testing:django -- --output_dir=${GITHUB_WORKSPACE}
+      
+      - name: Update Coverage
+        run:
+          cd ${GITHUB_WORKSPACE}/coverage; COVERALLS_REPO_TOKEN=${{secrets.COVERALL_TOKEN}} coveralls
