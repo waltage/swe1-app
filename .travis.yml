@@ -1,0 +1,26 @@
+dist: xenial
+language: python
+
+branches:
+  only:
+    - main
+    - setup-bazel
+
+addons:
+  apt:
+    packages:
+      - wget
+      - pkg-config
+
+before_install:
+  - wget https://github.com/bazelbuild/bazelisk/releases/download/v1.14.0/bazelisk-linux-amd64
+  - mv bazelisk-linux-amd64 bazel
+  - chmod +x bazel
+  - export PATH=$PATH:$PWD
+  - pip install coveralls
+
+script:
+  - bazel run //ci/lint:py_black -- --check $(pwd)/shortlist/
+  - bazel run //ci/lint:py_flake8 -- $(pwd)/shortlist/
+  - bazel run //ci/testing:django -- output_dir=$(pwd)/ci/testing/
+  - cd ci/testing/coverage; coveralls
