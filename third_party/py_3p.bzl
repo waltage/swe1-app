@@ -1,6 +1,6 @@
 
-load("@third_party//:requirements.bzl", "install_deps", "requirement")
-install_deps()
+load("@third_party//:requirements.bzl", "requirement")
+# install_deps()
 
 
 

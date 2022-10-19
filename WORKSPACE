@@ -24,3 +24,6 @@ pip_parse(
     python_interpreter = "python3.8",
     requirements_lock = "//third_party:requirements.txt"
 )
+
+load("@third_party//:requirements.bzl", "install_deps")
+install_deps()
