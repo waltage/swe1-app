@@ -20,13 +20,13 @@ before_install:
   - pip install coveralls
 
 script:
-  - bazel run //ci/lint:py_black -- --check $(pwd)/shortlist/
-  - bazel run //ci/lint:py_flake8 -- --ignore=E501 $(pwd)/shortlist/
-  - bazel run //ci/testing:django -- --output_dir=$(pwd)/ci/testing/
-  - cd ci/testing/coverage; coveralls
+  - bazel run //ci/lint:py_black -- --check /home/travis/build/waltage/swe1-app/shortlist/
+  - bazel run //ci/lint:py_flake8 -- --ignore=E501 /home/travis/build/waltage/swe1-app/shortlist/
+  - bazel run //ci/testing:django -- --output_dir=/home/travis/build/waltage/swe1-app/ci/testing/
+  - cd /home/travis/build/waltage/swe1-app/ci/testing/coverage; coveralls
 
 before_deploy:
-  - cd ci/deploy
+  - cd /home/travis/build/waltage/swe1-app/ci/deploy
 
 deploy:
   provider: script
