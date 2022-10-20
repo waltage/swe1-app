@@ -8,7 +8,7 @@ aws ecr get-login-password --region us-east-1 | docker login --username AWS --pa
 docker build . \
   --build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
   --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY\
-  --build-arg BRANCH=deployment \
+  --build-arg BRANCH=main \
   --tag $AWS_DOCKER_REPO:latest
 
 docker push .
