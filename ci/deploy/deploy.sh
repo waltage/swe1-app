@@ -1,9 +1,5 @@
 #!/bin/bash
 
-AWS_DOCKER_REPO=230664673572.dkr.ecr.us-east-1.amazonaws.com/nyu-swe1
-AWS_CLUSTER=django-hello
-AWS_SERVICE=django-hello-web-service
-
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_DOCKER_REPO
 docker build . \
   --build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
