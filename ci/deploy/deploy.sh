@@ -8,7 +8,7 @@ cd backend;
   --build-arg BRANCH=main \
   --tag $AWS_DOCKER_REPO:latest) || exit;
 
-(docker push .) || exit;
+(docker push $AWS_DOCKER_REPO:latest) || exit;
 cd ..;
 
 
