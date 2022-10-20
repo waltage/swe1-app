@@ -6,6 +6,7 @@ set +a
 cat /.env
 
 # TODO(waltage): verify that nginx is actually running after this
+
 systemctl start nginx
 
 # xray-dameon for aws xray
