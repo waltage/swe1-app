@@ -24,3 +24,12 @@ script:
   - bazel run //ci/lint:py_flake8 -- --ignore=E501 $(pwd)/shortlist/
   - bazel run //ci/testing:django -- --output_dir=$(pwd)/ci/testing/
   - cd ci/testing/coverage; coveralls
+
+before_deploy:
+  - cd ci/deploy
+
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    branch: main
