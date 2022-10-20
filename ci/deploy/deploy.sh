@@ -24,15 +24,16 @@ while IFS= read -r task; do
   (aws ecs stop-task --cluster $AWS_CLUSTER --task $task >/dev/null) || exit;
 done <<< "$tasks"
 echo "Stopped all tasks.  Waiting for new deployment."
-sleep 5;
-echo "Forcing new deployment..."
+sleep 30;
+echo "Forcing new deployment... (takes about 5 minutes)"
 # force 1
 (aws ecs update-service --cluster $AWS_CLUSTER --service $AWS_SERVICE --desired-count 1 --force-new-deployment >/dev/null) || exit;
+sleep 30;
 
 DESIRED_ENDPOINT=http://lb-django-hello-516063654.us-east-1.elb.amazonaws.com/polls/
 
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' $DESIRED_ENDPOINT)" != "200" ]]; do 
-  sleep 5
+  sleep 15
   echo "... waiting for 200"
 done
 
