@@ -29,6 +29,7 @@ before_deploy:
   - cd /home/travis/build/waltage/swe1-app/ci/deploy
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: deploy.sh
   on:
