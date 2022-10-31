@@ -17,8 +17,10 @@ echo "Reducing ECS capacity to 0..."
 (aws ecs update-service --cluster $AWS_CLUSTER --service $AWS_SERVICE --desired-count 0 --no-paginate >/dev/null) || exit;
 echo "    updated."
 # stop current
-tasks=$(aws ecs list-tasks --cluster $AWS_CLUSTER --service $AWS_SERVICE | grep -o -P '(arn.*[^"])')
-echo $alltasks
+tasks=$(aws ecs list-tasks --cluster $AWS_CLUSTER --service $AWS_SERVICE --query "taskArns[*]" --output text)
+echo "Task List:"
+echo $tasks
+
 while IFS= read -r task; do
   echo "Stopping: $task"
   (aws ecs stop-task --cluster $AWS_CLUSTER --task $task >/dev/null) || exit;
