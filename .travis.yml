@@ -26,6 +26,7 @@ script:
   - cd /home/travis/build/waltage/swe1-app/ci/testing/coverage; coveralls
 
 before_deploy:
+  - if ! [ -x "$(command -v aws)" ]; then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ; unzip awscliv2.zip ; sudo ./aws/install ; fi
   - cd /home/travis/build/waltage/swe1-app/ci/deploy
 
 deploy:
