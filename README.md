@@ -4,5 +4,5 @@
 
 
 <a href="https://coveralls.io/github/waltage/swe1-app">
-  <img src="https://coveralls.io/repos/github/waltage/swe1-app/badge.svg?branch=main" />
+  <img src="https://coveralls.io/repos/github/waltage/swe1-app/badge.png?branch=main" />
 </a>
